@@ -4,7 +4,8 @@ import argparse
 
 def get_args():
     # python sap.py --type=merge -f c.mp3 d.mp3
-    # python sap.py --type=cut -f a.m4a --time_intervals 0 13 16 20
+    # python sap.py --type=cut -f a.m4a -t 0 13 16 20
+    # python sap.py --type=cut -f a.m4a -t 0 13 51 -1
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--type",
@@ -18,6 +19,7 @@ def get_args():
         nargs='+',
         default=[],
         help="The lists of audio files that needs to be cut or merged."
+             "If --type=cut, number of files must be 1."
              "For exmample, -f a.mp3 b.mp3",
     )
     parser.add_argument(
@@ -25,7 +27,7 @@ def get_args():
         "--time_intervals",
         nargs='+',
         default=[0, -1],
-        help="The time period that needs to be cut. Unit: second."
+        help="Only used when --type=cut. The time period that needs to be cut. Unit: second."
              "For example, -t 0 14 17 28 means [0, 14] merged on [17, 28]."
              "By the way, -1 means the end.",
     )
@@ -55,7 +57,7 @@ if args.type == "merge":
 
 elif args.type == "cut":
     print("hint: --files must be a list of str. But the length of list is 1.")
-    assert len(args.files) == 1
+    assert len(args.files) == 1, "If --type=cut, number of files must be 1."
     assert isinstance(args.files[0], str)
     input_file = AudioSegment.from_file(args.files[0])
 
