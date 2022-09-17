@@ -1,7 +1,7 @@
 # simple-audio-processor
 A simple audio processor(SAP) based on pydub and ffmpeg. 
 
-First, please download ffmpeg via http://ffmpeg.org/, install it and set up the environment variable. You can try `ffmpeg –version` to check if ffmpeg is installed correctly.
+First, please download ffmpeg via http://ffmpeg.org/, install it and set up the environment variable（不熟悉的可以参考这个链接 https://zhuanlan.zhihu.com/p/324472015?utm_id=0）. You can try `ffmpeg –version` to check if ffmpeg is installed correctly.
 
 
 | arg | default | example | choice |  help |
