@@ -19,3 +19,8 @@ python sap.py --type=merge -f c.mp3 d.mp3
 python sap.py --type=cut -f a.m4a -t 0 13 16 20
 python sap.py --type=cut -f a.m4a -t 0 13 51 -1
 ```
+
+
+## TODO
+
+Adjust the audio to be merged so that the loudness is consistent.
